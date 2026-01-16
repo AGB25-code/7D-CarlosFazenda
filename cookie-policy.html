@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Cookies - 7D Carlos Fazenda Arquitectos</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1a1a1a; --secondary: #333; --accent: #666; --light: #f5f5f5; --white: #fff; --border: #e0e0e0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--primary); background: var(--white); }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid var(--border); }
+        .header-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo a { display: flex; align-items: center; }
+        .logo img { height: 40px; width: auto; }
+        .nav ul { display: flex; gap: 2rem; }
+        .nav a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary); padding: 0.5rem 0; position: relative; }
+        .nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--primary); transition: width 0.3s ease; }
+        .nav a:hover::after { width: 100%; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-toggle span { width: 20px; height: 1.5px; background: var(--primary); }
+
+        main { margin-top: 60px; }
+
+        .legal-content { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+        .legal-title { font-size: 2.5rem; font-weight: 200; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; text-align: left; }
+        .legal-updated { font-size: 0.85rem; color: var(--accent); margin-bottom: 3rem; letter-spacing: 0.05em; }
+
+        .legal-section { margin-bottom: 3rem; }
+        .legal-section h2 { font-size: 1.3rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; color: var(--primary); }
+        .legal-section h3 { font-size: 1rem; font-weight: 500; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--secondary); }
+        .legal-section p { font-size: 0.95rem; line-height: 1.8; color: var(--secondary); margin-bottom: 1rem; }
+        .legal-section ul { list-style: disc; margin-left: 2rem; margin-bottom: 1rem; }
+        .legal-section ul li { font-size: 0.95rem; line-height: 1.8; color: var(--secondary); margin-bottom: 0.5rem; }
+        .legal-section a { color: var(--primary); text-decoration: underline; }
+        .legal-section a:hover { color: var(--accent); }
+
+        .cookie-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--white); }
+        .cookie-table th, .cookie-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        .cookie-table th { background: var(--light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; color: var(--primary); }
+        .cookie-table tr:last-child td { border-bottom: none; }
+        .cookie-table tr:hover { background: rgba(0, 0, 0, 0.02); }
+
+        .info-box { background: var(--light); padding: 1.5rem; border-left: 3px solid var(--primary); margin: 1.5rem 0; }
+        .info-box p { margin-bottom: 0.5rem; }
+        .info-box p:last-child { margin-bottom: 0; }
+
+        .cookie-category { background: var(--light); padding: 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+        .cookie-category h3 { margin-top: 0; color: var(--primary); }
+
+        .btn-preferences { display: inline-block; padding: 0.75rem 2rem; background: var(--primary); color: var(--white); border: none; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; margin-top: 1rem; }
+        .btn-preferences:hover { background: var(--secondary); }
+
+        .footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; }
+        .footer-logo-img { height: 40px; width: auto; margin: 0 auto 1rem; opacity: 0.9; }
+        .footer-content { font-size: 0.75rem; opacity: 0.6; margin-bottom: 1rem; }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { font-size: 0.7rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.05em; }
+        .footer-links a:hover { opacity: 1; }
+        .footer a { color: var(--white); opacity: 0.8; text-decoration: underline; }
+        .footer a:hover { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .mobile-toggle { display: flex; }
+            .nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: none; }
+            .nav.active { display: block; }
+            .nav ul { flex-direction: column; gap: 1rem; }
+            .legal-title { font-size: 1.8rem; }
+            .legal-content { padding: 3rem 1.5rem; }
+            .cookie-table { font-size: 0.8rem; }
+            .cookie-table th, .cookie-table td { padding: 0.75rem 0.5rem; }
+            .footer-links { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo"><a href="index.html"><img src="logo.png" alt="7D Logo"></a></div>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="obras.html">Obras</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="reportagem.html">Reportagem</a></li>
+                    <li><a href="portfolio.pdf" target="_blank">Portfolio (PDF)</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="legal-content">
+            <h1 class="legal-title">Política de Cookies</h1>
+            <p class="legal-updated">Última atualização: 26 de novembro de 2025</p>
+
+            <div class="legal-section">
+                <h2>1. O que são Cookies?</h2>
+                <p>Os cookies são pequenos ficheiros de texto que são armazenados no seu dispositivo (computador, tablet ou telemóvel) quando visita um website. Os cookies permitem que o website reconheça o seu dispositivo e armazene informações sobre as suas preferências ou ações passadas.</p>
+                <p>Os cookies podem ser "persistentes" (permanecem no seu dispositivo por um período determinado) ou "de sessão" (são eliminados quando fecha o navegador).</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>2. Como Utilizamos Cookies</h2>
+                <p>Utilizamos cookies e tecnologias similares para melhorar a sua experiência no nosso website, compreender como o utiliza e para fins de marketing. Os cookies que utilizamos enquadram-se nas seguintes categorias:</p>
+            </div>
+
+            <div class="cookie-category">
+                <h3>Cookies Estritamente Necessários</h3>
+                <p>Estes cookies são essenciais para o funcionamento do website e não podem ser desativados nos nossos sistemas. Geralmente, são apenas configurados em resposta a ações da sua parte que correspondem a uma solicitação de serviços, como definir as suas preferências de privacidade, iniciar sessão ou preencher formulários.</p>
+                <p><strong>Período de retenção:</strong> Sessão (eliminados ao fechar o navegador)</p>
+                <p><strong>Base legal:</strong> Interesse legítimo (funcionamento do website)</p>
+
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Nome do Cookie</th>
+                            <th>Finalidade</th>
+                            <th>Duração</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>cookie_consent</td>
+                            <td>Armazena as suas preferências de cookies</td>
+                            <td>1 ano</td>
+                        </tr>
+                        <tr>
+                            <td>session_id</td>
+                            <td>Mantém a sua sessão ativa durante a navegação</td>
+                            <td>Sessão</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cookie-category">
+                <h3>Cookies de Desempenho e Análise</h3>
+                <p>Estes cookies permitem-nos contar visitas e fontes de tráfego, para que possamos medir e melhorar o desempenho do nosso website. Ajudam-nos a saber quais as páginas mais e menos populares e a ver como os visitantes se movem pelo website.</p>
+                <p><strong>Período de retenção:</strong> 1 mês a 2 anos</p>
+                <p><strong>Base legal:</strong> Consentimento</p>
+
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Nome do Cookie</th>
+                            <th>Fornecedor</th>
+                            <th>Finalidade</th>
+                            <th>Duração</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>_ga</td>
+                            <td>Google Analytics</td>
+                            <td>Distingue utilizadores únicos</td>
+                            <td>2 anos</td>
+                        </tr>
+                        <tr>
+                            <td>_gid</td>
+                            <td>Google Analytics</td>
+                            <td>Distingue utilizadores</td>
+                            <td>24 horas</td>
+                        </tr>
+                        <tr>
+                            <td>_gat</td>
+                            <td>Google Analytics</td>
+                            <td>Limita a taxa de pedidos</td>
+                            <td>1 minuto</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cookie-category">
+                <h3>Cookies de Funcionalidade</h3>
+                <p>Estes cookies permitem que o website forneça funcionalidades melhoradas e personalização. Podem ser definidos por nós ou por fornecedores terceiros cujos serviços adicionámos às nossas páginas.</p>
+                <p><strong>Período de retenção:</strong> 1 mês a 1 ano</p>
+                <p><strong>Base legal:</strong> Consentimento</p>
+
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Nome do Cookie</th>
+                            <th>Finalidade</th>
+                            <th>Duração</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>language_preference</td>
+                            <td>Armazena a sua preferência de idioma</td>
+                            <td>1 ano</td>
+                        </tr>
+                        <tr>
+                            <td>theme_preference</td>
+                            <td>Armazena preferências de visualização</td>
+                            <td>1 ano</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cookie-category">
+                <h3>Cookies de Marketing e Publicidade</h3>
+                <p>Estes cookies podem ser definidos através do nosso website pelos nossos parceiros de publicidade. Podem ser usados por essas empresas para construir um perfil sobre os seus interesses e mostrar-lhe anúncios relevantes noutros websites.</p>
+                <p><strong>Período de retenção:</strong> 1 mês a 2 anos</p>
+                <p><strong>Base legal:</strong> Consentimento</p>
+
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Nome do Cookie</th>
+                            <th>Fornecedor</th>
+                            <th>Finalidade</th>
+                            <th>Duração</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>_fbp</td>
+                            <td>Facebook</td>
+                            <td>Publicidade direcionada</td>
+                            <td>3 meses</td>
+                        </tr>
+                        <tr>
+                            <td>IDE</td>
+                            <td>Google DoubleClick</td>
+                            <td>Publicidade personalizada</td>
+                            <td>1 ano</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="legal-section">
+                <h2>3. Gestão das Suas Preferências de Cookies</h2>
+                <p>Pode gerir as suas preferências de cookies a qualquer momento clicando no botão abaixo. Pode optar por aceitar ou recusar determinadas categorias de cookies (exceto os estritamente necessários).</p>
+                <button class="btn-preferences" onclick="openCookiePreferences()">Gerir Preferências de Cookies</button>
+            </div>
+
+            <div class="legal-section">
+                <h2>4. Controlo de Cookies pelo Navegador</h2>
+                <p>A maioria dos navegadores permite-lhe controlar os cookies através das definições. Para saber mais sobre como gerir e eliminar cookies, visite:</p>
+                <ul>
+                    <li><strong>Google Chrome:</strong> <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Gerir cookies no Chrome</a></li>
+                    <li><strong>Mozilla Firefox:</strong> <a href="https://support.mozilla.org/pt-PT/kb/limpar-cookies-e-dados-de-sites-no-firefox" target="_blank" rel="noopener noreferrer">Gerir cookies no Firefox</a></li>
+                    <li><strong>Safari:</strong> <a href="https://support.apple.com/pt-pt/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Gerir cookies no Safari</a></li>
+                    <li><strong>Microsoft Edge:</strong> <a href="https://support.microsoft.com/pt-pt/microsoft-edge/eliminar-cookies-no-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Gerir cookies no Edge</a></li>
+                </ul>
+                <p><strong>Nota:</strong> Se optar por desativar cookies, algumas funcionalidades do website poderão não funcionar corretamente.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>5. Cookies de Terceiros</h2>
+                <p>Alguns cookies são colocados por serviços de terceiros que aparecem nas nossas páginas. Não controlamos a colocação destes cookies, pelo que deve consultar as políticas de privacidade destes terceiros para mais informações:</p>
+                <ul>
+                    <li><strong>Google Analytics:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Política de Privacidade do Google</a></li>
+                    <li><strong>Facebook:</strong> <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Política de Privacidade do Facebook</a></li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>6. Atualizações desta Política</h2>
+                <p>Podemos atualizar esta Política de Cookies periodicamente para refletir alterações nas tecnologias que utilizamos ou por outros motivos operacionais, legais ou regulamentares. Recomendamos que reveja esta página regularmente para se manter informado sobre como utilizamos cookies.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>7. Mais Informações</h2>
+                <p>Para mais informações sobre como tratamos os seus dados pessoais, consulte a nossa <a href="privacy-policy.html">Política de Privacidade</a>.</p>
+                <p>Se tiver questões sobre a utilização de cookies neste website, contacte-nos:</p>
+                <div class="info-box">
+                    <p><strong>7D - Carlos Fazenda Arquitectos</strong></p>
+                    <p>Email: <a href="mailto:geral@7d.pt">geral@7d.pt</a></p>
+                    <p>Telefone: <a href="tel:+351917275239">+351 917 275 239</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <img src="logo.png" alt="7D Logo" class="footer-logo-img">
+        <div class="footer-links">
+            <a href="privacy-policy.html">Política de Privacidade</a>
+            <a href="cookie-policy.html">Política de Cookies</a>
+            <a href="terms-of-use.html">Termos de Uso</a>
+        </div>
+        <p class="footer-content">&copy; 2025 Carlos Fazenda Arquitectos. Todos os direitos reservados. | Site developed by <a href="https://agbservices.pt/" target="_blank" rel="noopener noreferrer">AGB</a></p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('mobile-toggle');
+        const nav = document.getElementById('nav');
+        toggle.addEventListener('click', () => nav.classList.toggle('active'));
+
+        function openCookiePreferences() {
+            if (typeof window.showCookiePreferences === 'function') {
+                window.showCookiePreferences();
+            } else {
+                alert('O painel de preferências de cookies será aberto quando o banner de cookies estiver ativo no website.');
+            }
+        }
+    </script>
+</body>
+</html>

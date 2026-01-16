@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - 7D Carlos Fazenda Arquitectos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #333;
+            --accent: #666;
+            --light: #f5f5f5;
+            --white: #fff;
+            --border: #e0e0e0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after,
+        .nav a.active::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            width: 20px;
+            height: 1.5px;
+            background: var(--primary);
+        }
+
+        /* Main Content */
+        .sobre-container {
+            min-height: 100vh;
+            display: flex;
+            margin-top: 60px;
+        }
+
+        .sobre-image {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sobre-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .sobre-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 5rem;
+            background: var(--white);
+        }
+
+        .sobre-title {
+            font-size: 2.5rem;
+            font-weight: 200;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .sobre-text {
+            font-size: 1rem;
+            line-height: 2;
+            color: var(--secondary);
+        }
+
+        .sobre-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .sobre-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            width: auto;
+            margin: 0 auto 1rem;
+            opacity: 0.9;
+        }
+
+        .footer p {
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 0.7rem;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer a {
+            color: var(--white);
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .footer a:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sobre-content {
+                padding: 3rem;
+            }
+            .sobre-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+            .nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-bottom: 1px solid var(--border);
+                padding: 1rem 2rem;
+                display: none;
+            }
+            .nav.active {
+                display: block;
+            }
+            .nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .sobre-container {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .sobre-image {
+                height: 50vh;
+                position: relative;
+            }
+            .sobre-content {
+                padding: 3rem 2rem;
+            }
+            .sobre-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" alt="7D Logo"></a>
+            </div>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="obras.html">Obras</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="reportagem.html">Reportagem</a></li>
+                    <li><a href="portfolio.pdf" target="_blank">Portfolio (PDF)</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sobre Nós Content -->
+    <div class="sobre-container">
+        <div class="sobre-image">
+            <img src="sobreNos.jpg" alt="Carlos Fazenda - 7D Arquitectos">
+        </div>
+        <div class="sobre-content">
+            <h1 class="sobre-title">Sobre Nós</h1>
+            <div class="sobre-text">
+                <p>Carlos Fazenda é um arquiteto apaixonado pela forma como a arquitetura transforma a vida das pessoas e a identidade dos lugares. Ao longo do seu percurso, tem desenvolvido projetos que unem rigor técnico, sensibilidade estética e uma atenção especial ao detalhe, sempre orientados para criar espaços funcionais, confortáveis e intemporais.</p>
+                <p>A 7D nasce dessa visão: um atelier que combina arquitetura e engenharia numa abordagem integrada, colaborativa e orientada para o futuro. Mais do que desenhar edifícios, a 7D procura construir relações de confiança com os clientes, acompanhando cada fase do processo e garantindo soluções sustentáveis, inovadoras e à medida de cada desafio.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <img src="logo.png" alt="7D Logo" class="footer-logo-img">
+        <div class="footer-links">
+            <a href="privacy-policy.html">Política de Privacidade</a>
+            <a href="cookie-policy.html">Política de Cookies</a>
+            <a href="terms-of-use.html">Termos de Uso</a>
+        </div>
+        <p>&copy; 2025 Carlos Fazenda Arquitectos. Todos os direitos reservados. | Site developed by <a href="https://agbservices.pt/" target="_blank" rel="noopener noreferrer">AGB</a></p>
+    </footer>
+
+    <script src="cookie-consent.js"></script>
+    <script>
+        // Mobile menu
+        const toggle = document.getElementById('mobile-toggle');
+        const nav = document.getElementById('nav');
+
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

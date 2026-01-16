@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obras - 7D Carlos Fazenda Arquitectos</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1a1a1a; --secondary: #333; --accent: #666; --light: #f5f5f5; --white: #fff; --border: #e0e0e0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--primary); background: var(--white); }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid var(--border); }
+        .header-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo a { display: flex; align-items: center; }
+        .logo img { height: 40px; width: auto; }
+        .nav ul { display: flex; gap: 2rem; }
+        .nav a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary); padding: 0.5rem 0; position: relative; }
+        .nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--primary); transition: width 0.3s ease; }
+        .nav a:hover::after, .nav a.active::after { width: 100%; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-toggle span { width: 20px; height: 1.5px; background: var(--primary); }
+
+        main { margin-top: 60px; }
+        .section { padding: 4rem 2rem; max-width: 1400px; margin: 0 auto; }
+        .section-title { font-size: 1.5rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2rem; text-align: left; }
+
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .gallery-item { position: relative; aspect-ratio: 4/3; overflow: hidden; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: var(--white); opacity: 0; transition: opacity 0.3s ease; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay span { display: block; font-size: 0.85rem; }
+        .gallery-overlay .title { font-weight: 500; }
+        .gallery-overlay .location { font-size: 0.75rem; opacity: 0.8; }
+
+        .footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; }
+        .footer-logo-img { height: 40px; width: auto; margin: 0 auto 1rem; opacity: 0.9; }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { font-size: 0.7rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.05em; }
+        .footer-links a:hover { opacity: 1; }
+        .footer p { font-size: 0.75rem; opacity: 0.6; }
+        .footer a { color: var(--white); opacity: 0.8; text-decoration: underline; }
+        .footer a:hover { opacity: 1; }
+
+        @media (max-width: 1024px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .mobile-toggle { display: flex; }
+            .nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: none; }
+            .nav.active { display: block; }
+            .nav ul { flex-direction: column; gap: 1rem; }
+            .gallery { grid-template-columns: 1fr; }
+            .footer-links { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo"><a href="index.html"><img src="logo.png" alt="7D Logo"></a></div>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="obras.html" class="active">Obras</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="reportagem.html">Reportagem</a></li>
+                    <li><a href="portfolio.pdf" target="_blank">Portfolio (PDF)</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2 class="section-title">Obras</h2>
+            <div class="gallery">
+                <a href="projeto.html?id=monumentoUltramar" class="gallery-item">
+                    <img src="monumentoUltramar-1.jpg" alt="Monumento Ultramar">
+                    <div class="gallery-overlay"><span class="title">Monumento Ultramar</span><span class="location">Portugal</span></div>
+                </a>
+                <a href="projeto.html?id=torreChamaMirandela" class="gallery-item">
+                    <img src="torreChamaMirandela-1.jpg" alt="Torre Chama">
+                    <div class="gallery-overlay"><span class="title">Torre Chama</span><span class="location">Mirandela</span></div>
+                </a>
+                <a href="projeto.html?id=crematorioCamarate" class="gallery-item">
+                    <img src="crematorioCamarate-1.jpg" alt="Crematório">
+                    <div class="gallery-overlay"><span class="title">Crematório</span><span class="location">Camarate</span></div>
+                </a>
+                <a href="projeto.html?id=casaTerreaAlentejo" class="gallery-item">
+                    <img src="casaTerreaAlentejo-casaAzul1.jpg" alt="Casa Térrea">
+                    <div class="gallery-overlay"><span class="title">Casa Térrea</span><span class="location">Alentejo</span></div>
+                </a>
+                <a href="projeto.html?id=wcFinland" class="gallery-item">
+                    <img src="wcFinland-1.jpg" alt="WC Finland">
+                    <div class="gallery-overlay"><span class="title">WC Public</span><span class="location">Finland</span></div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <img src="logo.png" alt="7D Logo" class="footer-logo-img">
+        <div class="footer-links">
+            <a href="privacy-policy.html">Política de Privacidade</a>
+            <a href="cookie-policy.html">Política de Cookies</a>
+            <a href="terms-of-use.html">Termos de Uso</a>
+        </div>
+        <p>&copy; 2025 Carlos Fazenda Arquitectos. Todos os direitos reservados. | Site developed by <a href="https://agbservices.pt/" target="_blank" rel="noopener noreferrer">AGB</a></p>
+    </footer>
+
+    <script src="cookie-consent.js"></script>
+    <script>
+        const toggle = document.getElementById('mobile-toggle');
+        const nav = document.getElementById('nav');
+        toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    </script>
+</body>
+</html>

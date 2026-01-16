@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7D - Carlos Fazenda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            overflow: hidden;
+            font-family: 'Helvetica Neue', sans-serif;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Slideshow Background */
+        .slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Dark overlay for moody aesthetic */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+
+        /* 7D Animated Logo Container */
+        .logo-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .logo-animation {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0px;
+        }
+
+        /* The 7 */
+        .letter-7 {
+            font-size: 120px;
+            font-weight: 900;
+            color: #E31837;
+            user-select: none;
+            opacity: 0;
+            transform: translateX(-100px);
+            animation: slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+            margin-right: -35px;
+            position: relative;
+            z-index: 1;
+            font-family: 'Roboto', sans-serif;
+            line-height: 0.85;
+        }
+
+        /* The D */
+        .letter-d {
+            font-size: 120px;
+            font-weight: 700;
+            color: #3B6B82;
+            user-select: none;
+            opacity: 0;
+            transform: translateX(100px);
+            animation: slideInRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+            position: relative;
+            z-index: 0;
+            line-height: 0.85;
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Hover effect */
+        .logo-container:hover .letter-7 {
+            transform: translateX(-3px);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover .letter-d {
+            transform: translateX(3px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Tagline with typewriter effect */
+        .tagline-container {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            animation: showTagline 0.01s 1.8s forwards;
+        }
+
+        @keyframes showTagline {
+            to { opacity: 1; }
+        }
+
+        .tagline {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            border-right: 2px solid rgba(255, 255, 255, 0.4);
+            animation: typewriter 1.5s steps(30, end) 1.8s forwards, hideCursor 0.1s 3.5s forwards;
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes hideCursor {
+            to { border-color: transparent; }
+        }
+
+        /* Enter text */
+        .enter-text {
+            position: absolute;
+            bottom: -90px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            opacity: 0;
+            animation: fadeIn 0.5s ease 3.8s forwards;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .enter-text:hover {
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* 3D Shadow layers - hidden */
+        .shadow-layer {
+            display: none;
+        }
+
+        /* Gentle floating animation */
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: rotateX(2deg) rotateY(0deg);
+            }
+            25% {
+                transform: rotateX(0deg) rotateY(3deg);
+            }
+            50% {
+                transform: rotateX(-2deg) rotateY(0deg);
+            }
+            75% {
+                transform: rotateX(0deg) rotateY(-3deg);
+            }
+        }
+
+        /* Subtle light sweep */
+        .light-sweep {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: sweep 12s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sweep {
+            0%, 100% {
+                left: -100%;
+            }
+            50% {
+                left: 150%;
+            }
+        }
+
+        /* Click portal effect */
+        .portal-effect {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: #1a1a1a;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .portal-effect.active {
+            width: 300vmax;
+            height: 300vmax;
+            opacity: 1;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .letter-7, .letter-d {
+                font-size: 80px;
+            }
+            .letter-7 {
+                margin-right: -23px;
+            }
+            .tagline-container {
+                bottom: -40px;
+            }
+            .tagline {
+                font-size: 0.55rem;
+            }
+            .enter-text {
+                bottom: -75px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .letter-7, .letter-d {
+                font-size: 60px;
+            }
+            .letter-7 {
+                margin-right: -18px;
+            }
+            .tagline-container {
+                bottom: -35px;
+            }
+            .tagline {
+                font-size: 0.45rem;
+                letter-spacing: 0.15em;
+            }
+            .enter-text {
+                font-size: 0.5rem;
+                bottom: -65px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slideshow Background -->
+    <div class="slideshow" id="slideshow"></div>
+
+    <!-- Dark Overlay -->
+    <div class="overlay"></div>
+
+    <!-- 7D Animated Logo -->
+    <div class="logo-container" id="portal-trigger">
+        <div class="logo-animation">
+            <span class="letter-7">7</span>
+            <span class="letter-d">D</span>
+        </div>
+        <div class="tagline-container">
+            <span class="tagline">Arquitetura e Engenharia Lda.</span>
+        </div>
+        <span class="enter-text">Entrar</span>
+    </div>
+
+    <!-- Portal transition effect -->
+    <div class="portal-effect" id="portal"></div>
+
+    <script>
+        // Project images from Carlos Fazenda folders
+        const projectImages = [
+            'monumentoUltramar-1.jpg',
+            'monumentoUltramar-2.jpg',
+            'monumentoUltramar-4.jpg',
+            'monumentoUltramar-8.jpg',
+            'torreChamaMirandela-1.jpg',
+            'torreChamaMirandela-3.jpg',
+            'torreChamaMirandela-5.jpg',
+            'concursoBulgariaBiblioteca-1.jpg',
+            'concursoBulgariaBiblioteca-3.jpg',
+            'concursoBulgariaBiblioteca-5.jpg',
+            'crematorioCamarate-1.jpg',
+            'crematorioCamarate-2.jpg',
+            'casaTerreaAlentejo-casaAzul1.jpg',
+            'casaTerreaAlentejo-casaAmarela.jpg',
+            'wcFinland-1.jpg',
+            'wcFinland-3.jpg',
+            'concursoEscolaBasicaPontaDelgada-2.jpg',
+            'concursoEscolaBasicaPontaDelgada-4.jpg'
+        ];
+
+        // Create slideshow
+        const slideshow = document.getElementById('slideshow');
+        let currentSlide = 0;
+
+        projectImages.forEach((img, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'slide' + (index === 0 ? ' active' : '');
+            slide.style.backgroundImage = `url('${img}')`;
+            slideshow.appendChild(slide);
+        });
+
+        const slides = document.querySelectorAll('.slide');
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 5000);
+
+        // Portal click effect - navigate to main site
+        const portalTrigger = document.getElementById('portal-trigger');
+        const portal = document.getElementById('portal');
+
+        portalTrigger.addEventListener('click', () => {
+            portal.classList.add('active');
+
+            // Navigate to Sobre Nós page after transition
+            setTimeout(() => {
+                window.location.href = 'sobre.html';
+            }, 800);
+        });
+    </script>
+    <script src="cookie-consent.js"></script>
+</body>
+</html>

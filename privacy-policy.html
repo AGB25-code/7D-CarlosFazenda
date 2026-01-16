@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - 7D Carlos Fazenda Arquitectos</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1a1a1a; --secondary: #333; --accent: #666; --light: #f5f5f5; --white: #fff; --border: #e0e0e0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--primary); background: var(--white); }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid var(--border); }
+        .header-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo a { display: flex; align-items: center; }
+        .logo img { height: 40px; width: auto; }
+        .nav ul { display: flex; gap: 2rem; }
+        .nav a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary); padding: 0.5rem 0; position: relative; }
+        .nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--primary); transition: width 0.3s ease; }
+        .nav a:hover::after { width: 100%; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-toggle span { width: 20px; height: 1.5px; background: var(--primary); }
+
+        main { margin-top: 60px; }
+
+        .legal-content { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+        .legal-title { font-size: 2.5rem; font-weight: 200; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; text-align: left; }
+        .legal-updated { font-size: 0.85rem; color: var(--accent); margin-bottom: 3rem; letter-spacing: 0.05em; }
+
+        .legal-section { margin-bottom: 3rem; }
+        .legal-section h2 { font-size: 1.3rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; color: var(--primary); }
+        .legal-section h3 { font-size: 1rem; font-weight: 500; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--secondary); }
+        .legal-section p { font-size: 0.95rem; line-height: 1.8; color: var(--secondary); margin-bottom: 1rem; }
+        .legal-section ul { list-style: disc; margin-left: 2rem; margin-bottom: 1rem; }
+        .legal-section ul li { font-size: 0.95rem; line-height: 1.8; color: var(--secondary); margin-bottom: 0.5rem; }
+        .legal-section a { color: var(--primary); text-decoration: underline; }
+        .legal-section a:hover { color: var(--accent); }
+
+        .info-box { background: var(--light); padding: 1.5rem; border-left: 3px solid var(--primary); margin: 1.5rem 0; }
+        .info-box p { margin-bottom: 0.5rem; }
+        .info-box p:last-child { margin-bottom: 0; }
+
+        .footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; }
+        .footer-logo-img { height: 40px; width: auto; margin: 0 auto 1rem; opacity: 0.9; }
+        .footer-content { font-size: 0.75rem; opacity: 0.6; margin-bottom: 1rem; }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { font-size: 0.7rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.05em; }
+        .footer-links a:hover { opacity: 1; }
+        .footer a { color: var(--white); opacity: 0.8; text-decoration: underline; }
+        .footer a:hover { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .mobile-toggle { display: flex; }
+            .nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: none; }
+            .nav.active { display: block; }
+            .nav ul { flex-direction: column; gap: 1rem; }
+            .legal-title { font-size: 1.8rem; }
+            .legal-content { padding: 3rem 1.5rem; }
+            .footer-links { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo"><a href="index.html"><img src="logo.png" alt="7D Logo"></a></div>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="obras.html">Obras</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="reportagem.html">Reportagem</a></li>
+                    <li><a href="portfolio.pdf" target="_blank">Portfolio (PDF)</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="legal-content">
+            <h1 class="legal-title">Política de Privacidade</h1>
+            <p class="legal-updated">Última atualização: 26 de novembro de 2025</p>
+
+            <div class="legal-section">
+                <h2>1. Responsável pelo Tratamento de Dados</h2>
+                <div class="info-box">
+                    <p><strong>7D - Carlos Fazenda Arquitectos</strong></p>
+                    <p>R. Dom Nuno Álvares Pereira 1838 2 DTO<br>4585-014 Baltar, Portugal</p>
+                    <p>Email: <a href="mailto:geral@7d.pt">geral@7d.pt</a></p>
+                    <p>Telefone: <a href="tel:+351917275239">+351 917 275 239</a></p>
+                </div>
+            </div>
+
+            <div class="legal-section">
+                <h2>2. Dados Pessoais Recolhidos</h2>
+                <p>No âmbito da utilização deste website e dos nossos serviços, podemos recolher e tratar as seguintes categorias de dados pessoais:</p>
+
+                <h3>2.1 Dados de Contacto</h3>
+                <ul>
+                    <li>Nome completo</li>
+                    <li>Endereço de email</li>
+                    <li>Número de telefone</li>
+                    <li>Morada (quando aplicável)</li>
+                </ul>
+
+                <h3>2.2 Dados de Navegação</h3>
+                <ul>
+                    <li>Endereço IP</li>
+                    <li>Tipo de navegador e versão</li>
+                    <li>Páginas visitadas e tempo de permanência</li>
+                    <li>Origem do acesso (referrer)</li>
+                    <li>Data e hora de acesso</li>
+                </ul>
+
+                <h3>2.3 Cookies e Tecnologias Similares</h3>
+                <p>Utilizamos cookies conforme descrito na nossa <a href="cookie-policy.html">Política de Cookies</a>.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>3. Finalidades e Fundamentos Legais</h2>
+
+                <h3>3.1 Prestação de Serviços</h3>
+                <p><strong>Finalidade:</strong> Responder a pedidos de contacto, fornecer informações sobre os nossos serviços, preparar propostas e orçamentos.</p>
+                <p><strong>Base legal:</strong> Execução de diligências pré-contratuais ou contratuais (Art. 6.º, n.º 1, alínea b) do RGPD).</p>
+
+                <h3>3.2 Comunicação</h3>
+                <p><strong>Finalidade:</strong> Enviar newsletters, informações sobre projetos e serviços (apenas com o seu consentimento prévio).</p>
+                <p><strong>Base legal:</strong> Consentimento (Art. 6.º, n.º 1, alínea a) do RGPD).</p>
+
+                <h3>3.3 Melhoria do Website</h3>
+                <p><strong>Finalidade:</strong> Análise estatística do tráfego e comportamento dos utilizadores para melhorar a experiência de navegação.</p>
+                <p><strong>Base legal:</strong> Interesse legítimo (Art. 6.º, n.º 1, alínea f) do RGPD).</p>
+
+                <h3>3.4 Cumprimento de Obrigações Legais</h3>
+                <p><strong>Finalidade:</strong> Cumprimento de obrigações fiscais, contabilísticas e outras impostas por lei.</p>
+                <p><strong>Base legal:</strong> Cumprimento de obrigação legal (Art. 6.º, n.º 1, alínea c) do RGPD).</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>4. Conservação de Dados</h2>
+                <p>Os seus dados pessoais serão conservados apenas pelo período necessário para as finalidades para as quais foram recolhidos:</p>
+                <ul>
+                    <li><strong>Dados de contacto:</strong> Durante a relação comercial e até 3 anos após a sua cessação, salvo obrigações legais de conservação mais prolongadas.</li>
+                    <li><strong>Dados de marketing:</strong> Até retirar o seu consentimento ou solicitar a eliminação.</li>
+                    <li><strong>Dados de navegação:</strong> Conforme indicado na <a href="cookie-policy.html">Política de Cookies</a>, normalmente entre 1 mês e 2 anos.</li>
+                    <li><strong>Documentos contratuais e fiscais:</strong> 10 anos, em conformidade com as obrigações legais.</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>5. Partilha de Dados</h2>
+                <p>Os seus dados pessoais podem ser partilhados com:</p>
+                <ul>
+                    <li><strong>Prestadores de serviços:</strong> Empresas que nos auxiliam em serviços de hosting, email marketing, análise de dados (ex: Google Analytics), sempre mediante contrato de subcontratação que garante a proteção dos dados.</li>
+                    <li><strong>Autoridades públicas:</strong> Quando exigido por lei ou para proteção de direitos legais.</li>
+                    <li><strong>Consultores e parceiros:</strong> No contexto de projetos específicos, apenas com o seu consentimento prévio.</li>
+                </ul>
+                <p>Não vendemos, alugamos ou cedemos os seus dados pessoais a terceiros para fins de marketing sem o seu consentimento expresso.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>6. Transferências Internacionais</h2>
+                <p>Alguns dos nossos prestadores de serviços podem estar localizados fora do Espaço Económico Europeu (EEE). Nestas situações, garantimos que:</p>
+                <ul>
+                    <li>A transferência é efetuada para países com decisão de adequação da Comissão Europeia; ou</li>
+                    <li>São aplicadas garantias adequadas, como Cláusulas Contratuais Tipo aprovadas pela Comissão Europeia; ou</li>
+                    <li>O prestador de serviços adere a um mecanismo de certificação aprovado.</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>7. Os Seus Direitos</h2>
+                <p>Ao abrigo do Regulamento Geral sobre a Proteção de Dados (RGPD), tem os seguintes direitos:</p>
+
+                <h3>Direito de Acesso</h3>
+                <p>Pode solicitar informação sobre os dados pessoais que tratamos sobre si.</p>
+
+                <h3>Direito de Retificação</h3>
+                <p>Pode solicitar a correção de dados pessoais inexatos ou incompletos.</p>
+
+                <h3>Direito ao Apagamento ("Direito a ser Esquecido")</h3>
+                <p>Pode solicitar a eliminação dos seus dados pessoais quando não forem mais necessários para as finalidades para as quais foram recolhidos.</p>
+
+                <h3>Direito à Limitação do Tratamento</h3>
+                <p>Pode solicitar a limitação do tratamento dos seus dados em determinadas circunstâncias.</p>
+
+                <h3>Direito à Portabilidade dos Dados</h3>
+                <p>Pode solicitar a receção dos seus dados pessoais num formato estruturado, de uso corrente e de leitura automática.</p>
+
+                <h3>Direito de Oposição</h3>
+                <p>Pode opor-se ao tratamento dos seus dados pessoais para fins de marketing direto ou quando baseado em interesse legítimo.</p>
+
+                <h3>Direito de Retirar o Consentimento</h3>
+                <p>Quando o tratamento se basear no seu consentimento, pode retirá-lo a qualquer momento, sem comprometer a licitude do tratamento efetuado até essa data.</p>
+
+                <h3>Como Exercer os Seus Direitos</h3>
+                <p>Para exercer qualquer dos seus direitos, contacte-nos através de:</p>
+                <div class="info-box">
+                    <p>Email: <a href="mailto:geral@7d.pt">geral@7d.pt</a></p>
+                    <p>Ou envie-nos uma carta para:<br>
+                    7D - Carlos Fazenda Arquitectos<br>
+                    R. Dom Nuno Álvares Pereira 1838 2 DTO<br>
+                    4585-014 Baltar, Portugal</p>
+                </div>
+                <p>Responderemos ao seu pedido no prazo de 30 dias. Poderemos solicitar-lhe elementos de identificação para confirmar a sua identidade.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>8. Direito de Reclamação</h2>
+                <p>Se considerar que o tratamento dos seus dados pessoais viola o RGPD, tem o direito de apresentar reclamação junto da autoridade de controlo competente:</p>
+                <div class="info-box">
+                    <p><strong>Comissão Nacional de Proteção de Dados (CNPD)</strong></p>
+                    <p>Av. D. Carlos I, 134 - 1.º<br>1200-651 Lisboa, Portugal</p>
+                    <p>Tel: +351 213 928 400</p>
+                    <p>Email: geral@cnpd.pt</p>
+                    <p>Website: <a href="https://www.cnpd.pt" target="_blank" rel="noopener noreferrer">www.cnpd.pt</a></p>
+                </div>
+            </div>
+
+            <div class="legal-section">
+                <h2>9. Segurança dos Dados</h2>
+                <p>Implementamos medidas técnicas e organizativas adequadas para proteger os seus dados pessoais contra destruição acidental ou ilícita, perda, alteração, divulgação ou acesso não autorizados, incluindo:</p>
+                <ul>
+                    <li>Encriptação de dados sensíveis (SSL/TLS)</li>
+                    <li>Controlo de acessos e autenticação</li>
+                    <li>Backup regular de dados</li>
+                    <li>Formação dos colaboradores em proteção de dados</li>
+                    <li>Avaliação regular das medidas de segurança</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>10. Alterações à Política de Privacidade</h2>
+                <p>Reservamo-nos o direito de alterar esta Política de Privacidade a qualquer momento. Qualquer alteração será publicada nesta página com a data de "Última atualização" revista. Recomendamos que consulte periodicamente esta página para se manter informado.</p>
+                <p>Em caso de alterações substanciais, poderemos notificá-lo por email ou através de aviso destacado no nosso website.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>11. Contacto</h2>
+                <p>Para qualquer questão relacionada com esta Política de Privacidade ou com o tratamento dos seus dados pessoais, contacte-nos:</p>
+                <div class="info-box">
+                    <p><strong>7D - Carlos Fazenda Arquitectos</strong></p>
+                    <p>Email: <a href="mailto:geral@7d.pt">geral@7d.pt</a></p>
+                    <p>Telefone: <a href="tel:+351917275239">+351 917 275 239</a></p>
+                    <p>Morada: R. Dom Nuno Álvares Pereira 1838 2 DTO, 4585-014 Baltar, Portugal</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <img src="logo.png" alt="7D Logo" class="footer-logo-img">
+        <div class="footer-links">
+            <a href="privacy-policy.html">Política de Privacidade</a>
+            <a href="cookie-policy.html">Política de Cookies</a>
+            <a href="terms-of-use.html">Termos de Uso</a>
+        </div>
+        <p class="footer-content">&copy; 2025 Carlos Fazenda Arquitectos. Todos os direitos reservados. | Site developed by <a href="https://agbservices.pt/" target="_blank" rel="noopener noreferrer">AGB</a></p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('mobile-toggle');
+        const nav = document.getElementById('nav');
+        toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto - 7D Carlos Fazenda Arquitectos</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1a1a1a; --secondary: #333; --accent: #666; --light: #f5f5f5; --white: #fff; --border: #e0e0e0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--primary); background: var(--white); }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid var(--border); }
+        .header-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo a { display: flex; align-items: center; }
+        .logo img { height: 40px; width: auto; }
+        .nav ul { display: flex; gap: 2rem; }
+        .nav a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary); padding: 0.5rem 0; position: relative; }
+        .nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--primary); transition: width 0.3s ease; }
+        .nav a:hover::after { width: 100%; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-toggle span { width: 20px; height: 1.5px; background: var(--primary); }
+
+        main { margin-top: 60px; }
+
+        /* Project Header */
+        .project-header {
+            padding: 4rem 2rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            font-weight: 200;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .project-location {
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .project-description {
+            max-width: 800px;
+            margin: 2rem auto;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        /* Gallery */
+        .project-gallery {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .gallery-grid .gallery-item:first-child {
+            grid-column: span 2;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-block;
+            margin: 2rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-close, .lightbox-prev, .lightbox-next {
+            position: absolute;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
+            opacity: 1;
+        }
+
+        .lightbox-close { top: 1rem; right: 1rem; }
+        .lightbox-prev { left: 1rem; top: 50%; transform: translateY(-50%); }
+        .lightbox-next { right: 1rem; top: 50%; transform: translateY(-50%); }
+
+        .lightbox-content img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; }
+        .footer-logo-img { height: 40px; width: auto; margin: 0 auto 1rem; opacity: 0.9; }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { font-size: 0.7rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.05em; }
+        .footer-links a:hover { opacity: 1; }
+        .footer p { font-size: 0.75rem; opacity: 0.6; }
+        .footer a { color: var(--white); opacity: 0.8; text-decoration: underline; }
+        .footer a:hover { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .mobile-toggle { display: flex; }
+            .nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: none; }
+            .nav.active { display: block; }
+            .nav ul { flex-direction: column; gap: 1rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-grid .gallery-item:first-child { grid-column: span 1; }
+            .project-title { font-size: 1.8rem; }
+            .footer-links { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo"><a href="index.html"><img src="logo.png" alt="7D Logo"></a></div>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="obras.html">Obras</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="reportagem.html">Reportagem</a></li>
+                    <li><a href="portfolio.pdf" target="_blank">Portfolio (PDF)</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <a href="javascript:history.back()" class="back-link">← Voltar</a>
+
+        <div class="project-header">
+            <h1 class="project-title" id="project-title">Projeto</h1>
+            <p class="project-location" id="project-location">Portugal</p>
+            <p class="project-description" id="project-description"></p>
+        </div>
+
+        <div class="project-gallery">
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Images loaded dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <button class="lightbox-prev" onclick="prevImage()">‹</button>
+        <button class="lightbox-next" onclick="nextImage()">›</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-image">
+        </div>
+    </div>
+
+    <footer class="footer">
+        <img src="logo.png" alt="7D Logo" class="footer-logo-img">
+        <div class="footer-links">
+            <a href="privacy-policy.html">Política de Privacidade</a>
+            <a href="cookie-policy.html">Política de Cookies</a>
+            <a href="terms-of-use.html">Termos de Uso</a>
+        </div>
+        <p>&copy; 2025 Carlos Fazenda Arquitectos. Todos os direitos reservados. | Site developed by <a href="https://agbservices.pt/" target="_blank" rel="noopener noreferrer">AGB</a></p>
+    </footer>
+
+    <script src="cookie-consent.js"></script>
+    <script>
+        // Mobile menu
+        const toggle = document.getElementById('mobile-toggle');
+        const nav = document.getElementById('nav');
+        toggle.addEventListener('click', () => nav.classList.toggle('active'));
+
+        // Project data
+        const projects = {
+            'monumentoUltramar': {
+                title: 'Monumento Ultramar',
+                location: 'Portugal',
+                description: 'Memorial dedicado aos combatentes portugueses do Ultramar. Um projeto que une memória histórica com arquitetura contemporânea, criando um espaço de reflexão e homenagem.',
+                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '8.jpg', '9.jpg', '10.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg']
+            },
+            'torreChamaMirandela': {
+                title: 'Torre Chama',
+                location: 'Mirandela',
+                description: 'Estrutura vertical icónica que marca a paisagem urbana de Mirandela. A torre combina função e simbolismo, tornando-se um ponto de referência na cidade.',
+                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '8.jpg', '10.jpg', '11.jpg']
+            },
+            'crematorioCamarate': {
+                title: 'Crematório',
+                location: 'Camarate',
+                description: 'Espaço de cerimónia e despedida projetado com sensibilidade e respeito. A arquitetura procura criar um ambiente de serenidade e conforto.',
+                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg']
+            },
+            'casaTerreaAlentejo': {
+                title: 'Casa Térrea',
+                location: 'Alentejo',
+                description: 'Habitação unifamiliar integrada na paisagem alentejana. O projeto respeita a tradição construtiva local enquanto introduz elementos de conforto contemporâneo.',
+                images: ['casaAmarela.jpg', 'casaAzul1.jpg', 'casaAzul2.jpg', 'casaAzul3.jpg']
+            },
+            'wcFinland': {
+                title: 'WC Public',
+                location: 'Finland',
+                description: 'Instalação sanitária pública que demonstra como a arquitetura pode dignificar até os espaços mais utilitários. Design funcional com atenção ao detalhe.',
+                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg']
+            },
+            'concursoBulgariaBiblioteca': {
+                title: 'Biblioteca',
+                location: 'Bulgaria',
+                description: 'Proposta para concurso internacional de uma biblioteca pública. O projeto explora a relação entre o livro, o leitor e o espaço arquitectónico.',
+                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg']
+            },
+            'concursoEscolaBasicaPontaDelgada': {
+                title: 'Escola Básica',
+                location: 'Ponta Delgada',
+                description: 'Projeto para estabelecimento de ensino nos Açores. A escola foi pensada para promover a aprendizagem através de espaços luminosos e flexíveis.',
+                images: ['2.jpg', '3.jpg', '4.jpg', '5.jpg']
+            },
+            'cemiterioAcores': {
+                title: 'Cemitério',
+                location: 'Açores',
+                description: 'Ampliação e requalificação de espaço cemiterial. O projeto procura criar um ambiente de paz e contemplação, integrado na paisagem açoriana.',
+                images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg']
+            }
+        };
+
+        // Get project from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+
+        let currentImages = [];
+        let currentIndex = 0;
+
+        if (projectId && projects[projectId]) {
+            const project = projects[projectId];
+
+            document.getElementById('project-title').textContent = project.title;
+            document.getElementById('project-location').textContent = project.location;
+            document.getElementById('project-description').textContent = project.description;
+            document.title = `${project.title} - 7D Carlos Fazenda Arquitectos`;
+
+            const gallery = document.getElementById('gallery-grid');
+            const buildImagePath = (projectId, file) => `${projectId}-${file}`;
+            currentImages = project.images.map(img => buildImagePath(projectId, img));
+
+            project.images.forEach((img, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `<img src="${buildImagePath(projectId, img)}" alt="${project.title}">`;
+                item.onclick = () => openLightbox(index);
+                gallery.appendChild(item);
+            });
+        }
+
+        // Lightbox functions
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox-image').src = currentImages[currentIndex];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            document.getElementById('lightbox-image').src = currentImages[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            document.getElementById('lightbox-image').src = currentImages[currentIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+    </script>
+</body>
+</html>

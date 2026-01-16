@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Uso - 7D Carlos Fazenda Arquitectos</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1a1a1a; --secondary: #333; --accent: #666; --light: #f5f5f5; --white: #fff; --border: #e0e0e0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--primary); background: var(--white); }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid var(--border); }
+        .header-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo a { display: flex; align-items: center; }
+        .logo img { height: 40px; width: auto; }
+        .nav ul { display: flex; gap: 2rem; }
+        .nav a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary); padding: 0.5rem 0; position: relative; }
+        .nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--primary); transition: width 0.3s ease; }
+        .nav a:hover::after { width: 100%; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-toggle span { width: 20px; height: 1.5px; background: var(--primary); }
+
+        main { margin-top: 60px; }
+
+        .legal-content { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+        .legal-title { font-size: 2.5rem; font-weight: 200; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; text-align: left; }
+        .legal-updated { font-size: 0.85rem; color: var(--accent); margin-bottom: 3rem; letter-spacing: 0.05em; }
+
+        .legal-section { margin-bottom: 3rem; }
+        .legal-section h2 { font-size: 1.3rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; color: var(--primary); }
+        .legal-section h3 { font-size: 1rem; font-weight: 500; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--secondary); }
+        .legal-section p { font-size: 0.95rem; line-height: 1.8; color: var(--secondary); margin-bottom: 1rem; }
+        .legal-section ul { list-style: disc; margin-left: 2rem; margin-bottom: 1rem; }
+        .legal-section ul li { font-size: 0.95rem; line-height: 1.8; color: var(--secondary); margin-bottom: 0.5rem; }
+        .legal-section a { color: var(--primary); text-decoration: underline; }
+        .legal-section a:hover { color: var(--accent); }
+
+        .info-box { background: var(--light); padding: 1.5rem; border-left: 3px solid var(--primary); margin: 1.5rem 0; }
+        .info-box p { margin-bottom: 0.5rem; }
+        .info-box p:last-child { margin-bottom: 0; }
+
+        .footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; }
+        .footer-logo-img { height: 40px; width: auto; margin: 0 auto 1rem; opacity: 0.9; }
+        .footer-content { font-size: 0.75rem; opacity: 0.6; margin-bottom: 1rem; }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { font-size: 0.7rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.05em; }
+        .footer-links a:hover { opacity: 1; }
+        .footer a { color: var(--white); opacity: 0.8; text-decoration: underline; }
+        .footer a:hover { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .mobile-toggle { display: flex; }
+            .nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: none; }
+            .nav.active { display: block; }
+            .nav ul { flex-direction: column; gap: 1rem; }
+            .legal-title { font-size: 1.8rem; }
+            .legal-content { padding: 3rem 1.5rem; }
+            .footer-links { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo"><a href="index.html"><img src="logo.png" alt="7D Logo"></a></div>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="obras.html">Obras</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="reportagem.html">Reportagem</a></li>
+                    <li><a href="portfolio.pdf" target="_blank">Portfolio (PDF)</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="legal-content">
+            <h1 class="legal-title">Termos de Uso</h1>
+            <p class="legal-updated">Última atualização: 26 de novembro de 2025</p>
+
+            <div class="legal-section">
+                <h2>1. Aceitação dos Termos</h2>
+                <p>Bem-vindo ao website da 7D - Carlos Fazenda Arquitectos. Ao aceder e utilizar este website, aceita estar vinculado aos presentes Termos de Uso. Se não concordar com estes termos, não deve utilizar este website.</p>
+                <p>Reservamo-nos o direito de modificar estes Termos de Uso a qualquer momento. A utilização continuada do website após alterações constitui a aceitação dos termos revistos.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>2. Informações sobre o Proprietário</h2>
+                <div class="info-box">
+                    <p><strong>7D - Carlos Fazenda Arquitectos</strong></p>
+                    <p>R. Dom Nuno Álvares Pereira 1838 2 DTO<br>4585-014 Baltar, Portugal</p>
+                    <p>Email: <a href="mailto:geral@7d.pt">geral@7d.pt</a></p>
+                    <p>Telefone: <a href="tel:+351917275239">+351 917 275 239</a></p>
+                </div>
+            </div>
+
+            <div class="legal-section">
+                <h2>3. Utilização do Website</h2>
+
+                <h3>3.1 Licença de Utilização</h3>
+                <p>Concedemos-lhe uma licença limitada, não exclusiva, intransmissível e revogável para aceder e utilizar este website para fins pessoais e não comerciais, em conformidade com estes Termos de Uso.</p>
+
+                <h3>3.2 Restrições de Utilização</h3>
+                <p>Ao utilizar este website, compromete-se a não:</p>
+                <ul>
+                    <li>Utilizar o website para qualquer finalidade ilegal ou não autorizada</li>
+                    <li>Violar quaisquer leis aplicáveis, sejam locais, nacionais ou internacionais</li>
+                    <li>Transmitir vírus, malware ou qualquer código de natureza destrutiva</li>
+                    <li>Tentar obter acesso não autorizado a qualquer parte do website, servidor ou base de dados</li>
+                    <li>Fazer engenharia reversa, descompilar ou desmontar qualquer parte do website</li>
+                    <li>Copiar, reproduzir, distribuir ou explorar comercialmente qualquer conteúdo sem autorização prévia por escrito</li>
+                    <li>Utilizar robots, spiders, scrapers ou outras ferramentas automatizadas para aceder ao website</li>
+                    <li>Interferir com o funcionamento adequado do website ou com a utilização do mesmo por outros utilizadores</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>4. Propriedade Intelectual</h2>
+
+                <h3>4.1 Direitos de Autor</h3>
+                <p>Todo o conteúdo presente neste website, incluindo mas não limitado a textos, gráficos, logótipos, imagens, fotografias, vídeos, áudio, software e compilações de dados, é propriedade da 7D - Carlos Fazenda Arquitectos ou dos seus licenciantes e está protegido pelas leis de direitos de autor portuguesas e internacionais.</p>
+
+                <h3>4.2 Marcas Registadas</h3>
+                <p>As marcas, logótipos e marcas de serviço ("Marcas") exibidos neste website são propriedade da 7D - Carlos Fazenda Arquitectos ou de terceiros. Não é permitida a utilização destas Marcas sem a autorização prévia por escrito do proprietário.</p>
+
+                <h3>4.3 Projetos Arquitetónicos</h3>
+                <p>Todas as imagens, desenhos técnicos, plantas e outros materiais relacionados com projetos arquitetónicos exibidos neste website são propriedade exclusiva da 7D - Carlos Fazenda Arquitectos. A reprodução, distribuição ou utilização comercial destes materiais sem autorização expressa é estritamente proibida.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>5. Conteúdo Fornecido pelo Utilizador</h2>
+                <p>Se nos enviar comentários, sugestões, ideias ou outros conteúdos ("Contribuições do Utilizador"), concede-nos uma licença mundial, perpétua, irrevogável, isenta de royalties e não exclusiva para usar, reproduzir, modificar, adaptar, publicar e distribuir essas Contribuições do Utilizador em qualquer meio.</p>
+                <p>Garante que possui todos os direitos necessários sobre as Contribuições do Utilizador e que estas não violam os direitos de terceiros.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>6. Links para Websites de Terceiros</h2>
+                <p>Este website pode conter links para websites de terceiros que não são propriedade nem controlados pela 7D - Carlos Fazenda Arquitectos. Não temos controlo sobre, e não assumimos qualquer responsabilidade pelo conteúdo, políticas de privacidade ou práticas de websites de terceiros.</p>
+                <p>A inclusão de qualquer link não implica aprovação, endosso ou recomendação por parte da 7D - Carlos Fazenda Arquitectos. O acesso a websites de terceiros é por sua conta e risco.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>7. Isenção de Garantias</h2>
+                <p>Este website é fornecido "tal como está" e "conforme disponível", sem garantias de qualquer tipo, expressas ou implícitas, incluindo mas não limitadas a:</p>
+                <ul>
+                    <li>Garantias de comercialização ou adequação a um fim específico</li>
+                    <li>Garantias de que o website estará livre de erros, vírus ou outros componentes prejudiciais</li>
+                    <li>Garantias de disponibilidade, pontualidade, segurança ou fiabilidade ininterruptas</li>
+                    <li>Garantias de precisão, completude ou atualidade do conteúdo</li>
+                </ul>
+                <p>Reservamo-nos o direito de modificar, suspender ou descontinuar qualquer aspeto do website a qualquer momento, sem aviso prévio.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>8. Limitação de Responsabilidade</h2>
+                <p>Na medida máxima permitida por lei, a 7D - Carlos Fazenda Arquitectos, os seus diretores, funcionários, parceiros e agentes não serão responsáveis por quaisquer danos diretos, indiretos, incidentais, especiais, consequenciais ou punitivos resultantes de:</p>
+                <ul>
+                    <li>Utilização ou incapacidade de utilizar o website</li>
+                    <li>Acesso não autorizado ou alteração das suas transmissões ou dados</li>
+                    <li>Declarações ou condutas de terceiros no website</li>
+                    <li>Erros, omissões ou imprecisões no conteúdo</li>
+                    <li>Perda de dados ou lucros cessantes</li>
+                    <li>Qualquer outra questão relacionada com o website</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>9. Indemnização</h2>
+                <p>Concorda em indemnizar, defender e isentar de responsabilidade a 7D - Carlos Fazenda Arquitectos, os seus diretores, funcionários, parceiros e agentes de e contra todas as reclamações, responsabilidades, danos, perdas e despesas, incluindo honorários advocatícios razoáveis, decorrentes de ou relacionadas com:</p>
+                <ul>
+                    <li>A sua utilização do website</li>
+                    <li>Violação destes Termos de Uso</li>
+                    <li>Violação de quaisquer direitos de terceiros</li>
+                    <li>Contribuições do Utilizador que submeter</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>10. Privacidade e Proteção de Dados</h2>
+                <p>A recolha e tratamento de dados pessoais através deste website são regidos pela nossa <a href="privacy-policy.html">Política de Privacidade</a> e pela nossa <a href="cookie-policy.html">Política de Cookies</a>, que constituem parte integrante destes Termos de Uso.</p>
+                <p>Ao utilizar este website, consente o tratamento dos seus dados conforme descrito nessas políticas e em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD).</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>11. Resolução de Litígios</h2>
+
+                <h3>11.1 Lei Aplicável</h3>
+                <p>Estes Termos de Uso são regidos e interpretados de acordo com as leis de Portugal, sem consideração aos seus princípios de conflito de leis.</p>
+
+                <h3>11.2 Jurisdição</h3>
+                <p>Para a resolução de qualquer litígio decorrente destes Termos de Uso ou da utilização do website, será competente o foro da comarca do Porto, com expressa renúncia a qualquer outro.</p>
+
+                <h3>11.3 Resolução Alternativa de Litígios</h3>
+                <p>Em caso de litígio de consumo, pode recorrer a uma entidade de resolução alternativa de litígios:</p>
+                <div class="info-box">
+                    <p><strong>Centro de Arbitragem de Conflitos de Consumo do Porto</strong></p>
+                    <p>Rua Damião de Góis, 31, Loja 6, 4050-225 Porto</p>
+                    <p>Email: cicap@cicap.pt</p>
+                    <p>Website: <a href="http://www.cicap.pt" target="_blank" rel="noopener noreferrer">www.cicap.pt</a></p>
+                </div>
+                <p>Mais informações sobre resolução alternativa de litígios em: <a href="http://www.consumidor.pt" target="_blank" rel="noopener noreferrer">www.consumidor.pt</a></p>
+            </div>
+
+            <div class="legal-section">
+                <h2>12. Disposições Gerais</h2>
+
+                <h3>12.1 Acordo Completo</h3>
+                <p>Estes Termos de Uso, juntamente com a Política de Privacidade e a Política de Cookies, constituem o acordo completo entre si e a 7D - Carlos Fazenda Arquitectos relativamente à utilização do website.</p>
+
+                <h3>12.2 Divisibilidade</h3>
+                <p>Se qualquer disposição destes Termos de Uso for considerada inválida ou inexequível, as restantes disposições permanecerão em pleno vigor e efeito.</p>
+
+                <h3>12.3 Renúncia</h3>
+                <p>A não exigência por parte da 7D - Carlos Fazenda Arquitectos de qualquer direito ou disposição destes Termos de Uso não constitui uma renúncia a tal direito ou disposição.</p>
+
+                <h3>12.4 Cessão</h3>
+                <p>Não pode ceder ou transferir estes Termos de Uso sem o nosso consentimento prévio por escrito. Podemos ceder os nossos direitos e obrigações nos termos destes Termos de Uso sem restrições.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>13. Contacto</h2>
+                <p>Para questões sobre estes Termos de Uso, contacte-nos:</p>
+                <div class="info-box">
+                    <p><strong>7D - Carlos Fazenda Arquitectos</strong></p>
+                    <p>Email: <a href="mailto:geral@7d.pt">geral@7d.pt</a></p>
+                    <p>Telefone: <a href="tel:+351917275239">+351 917 275 239</a></p>
+                    <p>Morada: R. Dom Nuno Álvares Pereira 1838 2 DTO, 4585-014 Baltar, Portugal</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <img src="logo.png" alt="7D Logo" class="footer-logo-img">
+        <div class="footer-links">
+            <a href="privacy-policy.html">Política de Privacidade</a>
+            <a href="cookie-policy.html">Política de Cookies</a>
+            <a href="terms-of-use.html">Termos de Uso</a>
+        </div>
+        <p class="footer-content">&copy; 2025 Carlos Fazenda Arquitectos. Todos os direitos reservados. | Site developed by <a href="https://agbservices.pt/" target="_blank" rel="noopener noreferrer">AGB</a></p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('mobile-toggle');
+        const nav = document.getElementById('nav');
+        toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    </script>
+</body>
+</html>
